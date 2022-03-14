@@ -1,4 +1,4 @@
-from typing import List
+from typing import Any, List
 
 def sum(data: List) -> float:
     """
@@ -52,6 +52,18 @@ def variant(data: List) -> float:
         return float(s / n)
     else:
         raise TypeError("Hanya menerima tipe data list")
+
+def median(data: List) -> Any:
+    data = sorted(data)
+    n = len(data)
+    if n % 2 == 1:
+        return data[n // 2]
+    else:
+        i = n // 2
+        return (data[i - 1] + data[i]) / 2
+        
+
+print(median([3, 4, 5, 6, 7]))
 
 if __name__ == "__main__":
     import doctest
